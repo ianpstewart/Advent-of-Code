@@ -26,6 +26,7 @@ print(f"the current frequency is {current_freq}")
 current_freq = 0
 previous_freq = {0}
 
+#itertools.cycle loops back over the iterable ([0,n], [0, ], etc)
 for line in itertools.cycle(lines):
     current_freq += int(line)
     if current_freq in previous_freq:
