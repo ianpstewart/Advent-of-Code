@@ -3,20 +3,28 @@
 import sys
 
 def findRepeated(line):
-    twos = 0
-    threes = 0
+    twos, threes = 0, 0
+    isTwo, isThree = False, False
+
     tally = {}
     for letter in line:
         if letter not in tally.keys():
             tally[letter] = 1
         elif letter in tally.keys():
-            tally[letter] +=1
+            tally[letter] += 1
 
-    for item in tally.item():
-        if item < 2:
-            threes += 1
-        elif item < 1:
-            twos += 1
+        print(tally)
+
+    for item in tally.values():
+        if item == 3:
+            isThree = True
+        elif item == 2:
+            isTwo = True
+
+    if isThree:
+        threes += 1
+    if isTwo:
+        twos += 1
 
     return twos, threes
 
@@ -29,6 +37,7 @@ with open(in_file, 'r') as puzzle:
 
 total2 = 0
 total3 = 0
+
 for line in lines:
     twos, threes = findRepeated(line)
     total2 += twos
