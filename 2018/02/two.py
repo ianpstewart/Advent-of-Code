@@ -7,14 +7,14 @@ def findRepeated(line):
     isTwo, isThree = False, False
 
     tally = {}
+    #sees if the leter has occured before and adds one
     for letter in line:
         if letter not in tally.keys():
             tally[letter] = 1
         elif letter in tally.keys():
             tally[letter] += 1
-
-        print(tally)
-
+    #if there are more than two letters that are repeated multiple times this
+    #ignores them.
     for item in tally.values():
         if item == 3:
             isThree = True
@@ -46,3 +46,21 @@ for line in lines:
 checksum = total2 * total3
 
 print(checksum)
+################################################################################
+#part 2
+sames = []
+
+for line1 in lines:
+    for line2 in lines:
+        diff = 0
+        for i in range(0, len(line1)):
+            if line1[i] != line2[i]:
+                diff += 1
+        if diff == 1:
+            print(f"{line1} and {line2} are the ones")
+            for i in range(0, len(line1)):
+                if line1[i] == line2[i]:
+                    sames.append(line1[i])
+
+            for letter in sames:
+                print(letter, end="")
