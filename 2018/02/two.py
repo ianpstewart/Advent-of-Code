@@ -50,6 +50,7 @@ print(checksum)
 #part 2
 sames = []
 
+#checks each pair twice :( also ignoring newlines
 for line1 in lines:
     for line2 in lines:
         diff = 0
