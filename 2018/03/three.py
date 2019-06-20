@@ -23,11 +23,20 @@ for line in lines:
     x[1] = x[0] + int(items[3].split("x")[0])
     y[1] = y[0] + int(items[3].split("x")[1])
 
-
     xRange.append(x)
     yRange.append(y)
 
+#x1 x2 y1 y2
 cords = zip(xRange, yRange)
 
-for cord in cords:
-    print(cord)
+for box in cords:
+    for i in range(box[0][0], box[0][1]):
+        for j in range(box[1][0], box[1][1]):
+            sheet[i][j] += 1
+total = 0
+for i in range(0, 1000):
+    for j in range(0, 1000):
+        if sheet[i][j] > 1:
+            total += 1
+
+print(total)
