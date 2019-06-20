@@ -18,9 +18,16 @@ for line in lines:
     x = [0, 0]
     y = [0, 0]
     items = line.split()
-    x[0] = items[2].split(",")[0]
-    y[0] = items[2].split(",")[0]
-    x[1] = x[0] + items[3].split("x")[0]
-    y[1] = y[0] + items[3].split("x")[0]
+    x[0] = int(items[2].split(",")[0])
+    y[0] = int(items[2].split(",")[1].rstrip(":"))
+    x[1] = x[0] + int(items[3].split("x")[0])
+    y[1] = y[0] + int(items[3].split("x")[1])
 
-    
+
+    xRange.append(x)
+    yRange.append(y)
+
+cords = zip(xRange, yRange)
+
+for cord in cords:
+    print(cord)
