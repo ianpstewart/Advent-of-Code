@@ -29,10 +29,13 @@ for line in lines:
 #x1 x2 y1 y2
 cords = zip(xRange, yRange)
 
+#adds one to each space where a box exists
 for box in cords:
     for i in range(box[0][0], box[0][1]):
         for j in range(box[1][0], box[1][1]):
             sheet[i][j] += 1
+
+#checks every square for a value
 total = 0
 for i in range(0, 1000):
     for j in range(0, 1000):
@@ -40,3 +43,4 @@ for i in range(0, 1000):
             total += 1
 
 print(total)
+    
