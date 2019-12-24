@@ -4,28 +4,27 @@ import sys
 #input.txt needs to be first argument
 in_file = sys.argv[1]
 
-#opens the input file and reads the every line
-with open(in_file, 'r') as puzzle:
-    lines = puzzle.readlines()
+code = list(map(int, open(in_file).read().split(',')))
 
-code = list(lines[0])
+#removes the commas and turns the values into ints
 
-def opcode(intcode, pos):
-    if intcode[pos] == 1:
-        sum = intcode[pos + 1] + intcode[pos + 2]
-    elif intcode[pos] == 2:
-        prod = intcode[pos + 1] + intcode[pos + 2]
+#1 adds the nums and 2 multiplies
+def opcode(intcode, val1, val2):
+    if intcode == 1:
+        return val1 + val2
+
+    elif intcode == 2:
+        return val1 * val2
 
 #1202 Program Alarm
-code[1] = 12
-code[2] = 2
+#code[1] = 12
+#code[2] = 2
 
-for position, value in enumerate(code)
-    if position % 3 != 0:
-        continue
-    elif value == 99:
-        break
-    else:
-        code[position + 3] = opcode(code, position)
+print("The starting values are ", code)
 
-print("The final value in position 0 is", code[0])
+#come in sets of four numbers
+
+
+print("The final values are ", code)
+
+
