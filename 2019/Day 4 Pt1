@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+possibilities = []
+
+def checkDecrease(item):
+    for i in range(1,6):
+        if item[i] < item[i-1]:
+            return 0
+    return 1
+
+def checkDoubles(item):
+     for i in range(1,6):
+        if item[i] == item[i-1]:
+            return 1
+
+for i in range(240920, 789858):
+    j = [int(d) for d in str(i)]
+    if checkDecrease(j):
+        if checkDoubles(j):
+            possibilities.append(i)
+
+print(len(possibilities))

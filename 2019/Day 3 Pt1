@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+
+wireOne = input("Enter the first wire\'s path: ")
+wireOneList = wireOne.split(',')
+
+wireTwo = input("Enter the second wire\'s path: ")
+wireTwoList = wireTwo.split(',')
+
+
+xStep = {'U':0, 'D':0, 'L':1, 'R':-1}
+yStep = {'U':1, 'D':-1, 'L':0, 'R':0}
+
+def getPoints(path):
+    x = 0
+    y = 0
+    coOrds = []
+    for step in path:
+        dis = int(step[1:])
+        d = step[0]
+        for i in range(dis):
+            x = x + xStep[d]
+            y = y + yStep[d]
+            coOrds = coOrds + [(x,y)]
+
+    return coOrds
+
+firstPoints = getPoints(wireOneList)
+secondPoints = getPoints(wireTwoList)
+
+intersections = []
+
+for point in secondPoints:
+    if point in firstPoints:
+        intersections = intersections + [point]
+
+manhattan = 999999999999999
+for point in intersections:
+    pointDis = abs(point[0]) + abs(point[1])
+    if pointDis < manhattan:
+        manhattan = pointDis
+
+print(intersections)
+print(manhattan)
